@@ -28,6 +28,11 @@ nav {
     border-bottom: 1px solid #1e293b;
 }
 
+nav img {
+    height: 60px;
+    width: auto;
+}
+
 nav ul {
     display: flex;
     list-style: none;
@@ -43,6 +48,24 @@ nav a:hover {
     color: white;
 }
 
+.btn {
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover {
+    transform: scale(1.04);
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+footer a:hover {
+    color: #a4b7e0;
+    transform: scale(1.04);
+}
 
 .hero {
     display: flex;
@@ -63,7 +86,7 @@ nav a:hover {
 }
 
 .hero-text h2 {
-    color: #3b82f6;
+    color: #4c75b6;
 }
 
 .btn {
@@ -75,14 +98,14 @@ nav a:hover {
 }
 
 .btn-primary {
-    background: #2563eb;
-    color: white;
+    background: #a4b7e0;
+    color: rgb(0, 0, 0);
 }
 
 .btn-secondary {
     background: transparent;
-    border: 1px solid #2563eb;
-    color: #2563eb;
+    border: 1px solid #a4b7e0;
+    color: #a4b7e0;
 }
 
 footer {
