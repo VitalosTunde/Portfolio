@@ -1,12 +1,51 @@
+:root {
+    --bg-gradient: radial-gradient(circle at 80% 35%, rgba(37, 99, 235, 0.35), transparent 28%), radial-gradient(circle at 15% 40%, rgba(59, 130, 246, 0.32), transparent 25%), linear-gradient(135deg, #020617, #071225 45%, #0f172a);
+    --text-color: white;
+    --nav-bg: #0f172a;
+    --nav-border: #1e293b;
+    --nav-link-color: #a4b7e0;
+    --nav-link-color-rgb: 164, 183, 224;
+    --nav-link-hover: white;
+    --footer-link-hover: #a4b7e0;
+    --star-color: rgba(200, 220, 255, 1);
+    --btn-primary-bg: #a4b7e0;
+    --btn-primary-color: rgb(0, 0, 0);
+    --btn-secondary-bg: transparent;
+    --btn-secondary-border: #a4b7e0;
+    --btn-secondary-color: #a4b7e0;
+    --footer-bg: #0f172a;
+    --footer-border: #1e293b;
+    --tag-bg: #1e293b;
+    --hero-h2-color: #4c75b6;
+}
+
+.light-mode {
+    --bg-gradient: radial-gradient(circle at 80% 35%, rgba(26, 66, 151, 0.35), transparent 28%), radial-gradient(circle at 15% 40%, rgba(18, 40, 89, 0.35), transparent 25%), linear-gradient(135deg, #f8fafc, #e2e8f0 45%, #cbd5e1);
+    --text-color: #1e293b;
+    --nav-bg: #b8c6e3;
+    --nav-border: #9cb8dc;
+    --nav-link-color: #2d3c57;
+    --nav-link-color-rgb: 45, 60, 87;
+    --nav-link-hover: #000000;
+    --footer-link-hover: #eef6ff;
+    --star-color: rgb(0, 33, 91);
+    --btn-primary-bg: #1e293b;
+    --btn-primary-color: white;
+    --btn-secondary-bg: transparent;
+    --btn-secondary-border: #1e293b;
+    --btn-secondary-color: #1e293b;
+    --footer-bg: #b8c6e3;
+    --footer-border: #9cb8dc;
+    --tag-bg: #e2e8f0;
+    --hero-h2-color: #4c75b6;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    color: white;
+    color: var(--text-color);
     overflow-x: hidden;
-    background:
-        radial-gradient(circle at 80% 35%, rgba(37, 99, 235, 0.35), transparent 28%),
-        radial-gradient(circle at 15% 40%, rgba(59, 130, 246, 0.32), transparent 25%),
-        linear-gradient(135deg, #020617, #071225 45%, #0f172a);
+    background: var(--bg-gradient);
 }
 
 #stars-bg {
@@ -24,8 +63,8 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    background-color: #0f172a;
-    border-bottom: 1px solid #1e293b;
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
 }
 
 nav img {
@@ -41,11 +80,139 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: #94a3b8;
+    color: var(--nav-link-color);
 }
 
-nav a:hover {
-    color: white;
+nav a:hover,
+.current-lang:hover {
+    color: var(--nav-link-hover);
+}
+
+.language-selector {
+    position: relative;
+}
+
+.current-lang {
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--nav-link-color);
+    transition: color 0.2s ease;
+}
+
+.current-lang:hover {
+    color: var(--nav-link-hover);
+}
+
+.mode-switch {
+    display: flex;
+    align-items: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(var(--nav-link-color-rgb), 0.25);
+    border-radius: 34px;
+    transition: background-color 0.3s ease;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.slider .icon {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 5px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.slider .icon.sun {
+    left: 8px;
+    background-image: url("images/hold.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.slider .icon.moon {
+    right: 8px;
+    background-image: url("images/nap.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+input:checked + .slider {
+    background-color: rgba(var(--nav-link-color-rgb), 0.45);
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+input:not(:checked) + .slider .icon.sun,
+input:checked + .slider .icon.moon {
+    opacity: 0;
+}
+
+input:not(:checked) + .slider .icon.moon,
+input:checked + .slider .icon.sun {
+    opacity: 0.9;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--nav-bg);
+    border: 1px solid var(--nav-border);
+    border-radius: 8px;
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.language-selector:hover .dropdown-menu {
+    display: flex;
+}
+
+.dropdown-menu img {
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.dropdown-menu img:hover {
+    transform: scale(1.1);
 }
 
 .btn {
@@ -57,13 +224,13 @@ nav a:hover {
 }
 
 footer a {
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
     transition: transform 0.2s ease, color 0.2s ease;
 }
 
 footer a:hover {
-    color: #a4b7e0;
+    color: var(--footer-link-hover);
     transform: scale(1.04);
 }
 
@@ -86,7 +253,7 @@ footer a:hover {
 }
 
 .hero-text h2 {
-    color: #4c75b6;
+    color: var(--hero-h2-color);
 }
 
 .btn {
@@ -98,26 +265,26 @@ footer a:hover {
 }
 
 .btn-primary {
-    background: #a4b7e0;
-    color: rgb(0, 0, 0);
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-color);
 }
 
 .btn-secondary {
-    background: transparent;
-    border: 1px solid #a4b7e0;
-    color: #a4b7e0;
+    background: var(--btn-secondary-bg);
+    border: 1px solid var(--btn-secondary-border);
+    color: var(--btn-secondary-color);
 }
 
 footer {
     padding: 40px;
     display: flex;
     justify-content: space-around;
-    border-top: 1px solid #1e293b;
-    background-color: #0f172a;
+    border-top: 1px solid var(--footer-border);
+    background-color: var(--footer-bg);
 }
 
 .tag {
-    background: #1e293b;
+    background: var(--tag-bg);
     padding: 8px 12px;
     border-radius: 8px;
     display: inline-block;

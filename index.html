@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vitálos Tünde Eszter</title>
-    <link rel="icon" href="images/logo_sotet.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -21,8 +21,22 @@
         <li><a href="#">Tapasztalat</a></li>
         <li><a href="#">Tanulmányok</a></li>
         <li><a href="#">Projektek</a></li>
-        <li><a href="#">Nyelv</a></li>
-        <li><a href="#">Mód</a></li>
+        <li class="language-selector">
+            <span class="current-lang">HUN</span>
+            <div class="dropdown-menu">
+                <img src="images/english.svg" alt="English" onclick="changeLanguage('en')">
+                <img src="images/german.svg" alt="Deutsch" onclick="changeLanguage('de')">
+            </div>
+        </li>
+        <li class="mode-switch">
+            <label class="switch">
+                <input type="checkbox" id="mode-toggle" onclick="toggleMode()">
+                <span class="slider">
+                    <span class="icon sun"></span>
+                    <span class="icon moon"></span>
+                </span>
+            </label>
+        </li>
     </ul>
 </nav>
 
