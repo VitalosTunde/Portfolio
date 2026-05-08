@@ -15,29 +15,52 @@
 
 <nav>
     <img src="images/logo_sotet.svg" alt="Logo">
-    <ul>
-        <li><a href="#">Kezdőlap</a></li>
-        <li><a href="#">Rólam</a></li>
-        <li><a href="#">Tapasztalat</a></li>
-        <li><a href="#">Tanulmányok</a></li>
-        <li><a href="#">Projektek</a></li>
-        <li class="language-selector">
-            <span class="current-lang">HUN</span>
-            <div class="dropdown-menu">
-                <img src="images/english.svg" alt="English" onclick="changeLanguage('en')">
-                <img src="images/german.svg" alt="Deutsch" onclick="changeLanguage('de')">
+    <div class = "menu-container">
+        <ul class="nav-links">
+            <li><a href="#">Kezdőlap</a></li>
+            <li><a href="#">Rólam</a></li>
+            <li><a href="#">Tapasztalat</a></li>
+            <li><a href="#">Tanulmányok</a></li>
+            <li><a href="#">Projektek</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <div class="language-selector">
+                <span class="current-lang">HUN</span>
+                <div class="dropdown-menu">
+                    <img src="images/english.svg" alt="English" onclick="changeLanguage('en')">
+                    <img src="images/german.svg" alt="Deutsch" onclick="changeLanguage('de')">
+                </div>
             </div>
-        </li>
-        <li class="mode-switch">
-            <label class="switch">
-                <input type="checkbox" id="mode-toggle" onclick="toggleMode()">
-                <span class="slider">
-                    <span class="icon sun"></span>
-                    <span class="icon moon"></span>
-                </span>
-            </label>
-        </li>
-    </ul>
+
+            <div class="mode-switch">
+                <label class="switch">
+                    <input type="checkbox" id="mode-toggle" onclick="toggleMode()">
+                    <span class="slider">
+                        <span class="icon sun"></span>
+                        <span class="icon moon"></span>
+                    </span>
+                </label>
+            </div>
+
+            <div class="hamburger-menu">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <ul class="hamburger-dropdown">
+                    <li><a href="#">Kezdőlap</a></li>
+                    <li><a href="#">Rólam</a></li>
+                    <li><a href="#">Tapasztalat</a></li>
+                    <li><a href="#">Tanulmányok</a></li>
+                    <li><a href="#">Projektek</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
 </nav>
 
 
@@ -54,8 +77,10 @@
             aki gyakornoki munkát keres IT területen.
         </p>
 
-        <button class="btn btn-primary">Többet rólam</button>
-        <button class="btn btn-secondary">Kapcsolat</button>
+        <div class="hero-buttons">
+            <button class="btn btn-primary">Többet rólam</button>
+            <button class="btn btn-secondary">Kapcsolat</button>
+        </div>
     </div>
 </section>
 
@@ -70,8 +95,8 @@
     <div>
         <h3>PROGRAMOZÁSI NYELVEK</h3>
         <span class="tag">C#</span>
-        <span class="tag">.NET</span>
         <span class="tag">Python</span>
+        <span class="tag">.NET</span>
         <span class="tag">HTML</span>
     </div>
 
