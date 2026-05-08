@@ -145,7 +145,8 @@ nav a {
     color: var(--nav-link-hover);
 }
 
-.hamburger-menu:hover .hamburger-dropdown {
+.hamburger-menu:hover .hamburger-dropdown,
+.hamburger-menu.open .hamburger-dropdown {
     display: flex;
 }
 
@@ -267,7 +268,8 @@ input:checked + .slider .icon.sun {
     z-index: 1000;
 }
 
-.language-selector:hover .dropdown-menu {
+.language-selector:hover .dropdown-menu,
+.language-selector.open .dropdown-menu {
     display: flex;
 }
 

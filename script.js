@@ -188,3 +188,41 @@ function changeLanguage(lang) {
     footerDivs[3].querySelector('h3').textContent = trans.resume;
     footerDivs[3].querySelector('.btn').textContent = trans.download;
 }
+
+
+const languageSelector = document.querySelector(".language-selector");
+const currentLang = document.querySelector(".current-lang");
+
+const hamburgerMenu = document.querySelector(".hamburger-menu");
+const hamburger = document.querySelector(".hamburger");
+
+currentLang.addEventListener("click", function (event) {
+    event.stopPropagation();
+
+    languageSelector.classList.toggle("open");
+    hamburgerMenu.classList.remove("open");
+});
+
+hamburger.addEventListener("click", function (event) {
+    event.stopPropagation();
+
+    hamburgerMenu.classList.toggle("open");
+    languageSelector.classList.remove("open");
+});
+
+document.addEventListener("click", function () {
+    languageSelector.classList.remove("open");
+    hamburgerMenu.classList.remove("open");
+});
+
+document.querySelectorAll(".hamburger-dropdown a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        hamburgerMenu.classList.remove("open");
+    });
+});
+
+document.querySelectorAll(".dropdown-menu img").forEach(function (flag) {
+    flag.addEventListener("click", function () {
+        languageSelector.classList.remove("open");
+    });
+});
