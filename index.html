@@ -7,9 +7,10 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
 </head>
 
-<body>
+<body data-page="home">
 
 <canvas id="stars-bg"></canvas>
 
@@ -17,11 +18,11 @@
     <img src="images/logo_sotet.svg" alt="Logo">
     <div class = "menu-container">
         <ul class="nav-links">
-            <li><a href="#home" aria-current="page">Kezdőlap</a></li>
-            <li><a href="#">Rólam</a></li>
-            <li><a href="#experience">Tapasztalat</a></li>
-            <li><a href="#studies">Tanulmányok</a></li>
-            <li><a href="#">Projektek</a></li>
+            <li><a href="index.html" aria-current="page">Kezdőlap</a></li>
+            <li><a href="about.html">Rólam</a></li>
+            <li><a href="experience.html">Tapasztalat</a></li>
+            <li><a href="studies.html">Tanulmányok</a></li>
+            <li><a href="projects.html">Projektek</a></li>
         </ul>
 
         <div class="nav-actions">
@@ -51,11 +52,11 @@
                 </div>
 
                 <ul class="hamburger-dropdown">
-                    <li><a href="#home" aria-current="page">Kezdőlap</a></li>
-                    <li><a href="#">Rólam</a></li>
-                    <li><a href="#experience">Tapasztalat</a></li>
-                    <li><a href="#studies">Tanulmányok</a></li>
-                    <li><a href="#">Projektek</a></li>
+                    <li><a href="index.html" aria-current="page">Kezdőlap</a></li>
+                    <li><a href="about.html">Rólam</a></li>
+                    <li><a href="experience.html">Tapasztalat</a></li>
+                    <li><a href="studies.html">Tanulmányok</a></li>
+                    <li><a href="projects.html">Projektek</a></li>
                 </ul>
             </div>
         </div>
@@ -84,8 +85,6 @@
         </div>
     </div>
 </section>
-<section class="timeline-page" id="experience" aria-labelledby="experience-title" hidden></section>
-<section class="timeline-page" id="studies" aria-labelledby="studies-title" hidden></section>
 </main>
 
 <footer>
@@ -121,5 +120,6 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="language.js"></script>
 </body>
 </html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projektek | Vitálos Tünde Eszter</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body data-page="projects">
+
+<canvas id="stars-bg"></canvas>
+
+<nav>
+    <img src="images/logo_sotet.svg" alt="Logo">
+    <div class = "menu-container">
+        <ul class="nav-links">
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="about.html">Rólam</a></li>
+            <li><a href="experience.html">Tapasztalat</a></li>
+            <li><a href="studies.html">Tanulmányok</a></li>
+            <li><a href="projects.html" aria-current="page">Projektek</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <div class="language-selector">
+                <span class="current-lang">HUN</span>
+                <div class="dropdown-menu">
+                    <img src="images/english.svg" alt="English" onclick="changeLanguage('en')">
+                    <img src="images/german.svg" alt="Deutsch" onclick="changeLanguage('de')">
+                </div>
+            </div>
+
+            <div class="mode-switch">
+                <label class="switch">
+                    <input type="checkbox" id="mode-toggle" onclick="toggleMode()">
+                    <span class="slider">
+                        <span class="icon sun"></span>
+                        <span class="icon moon"></span>
+                    </span>
+                </label>
+            </div>
+
+            <div class="hamburger-menu">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <ul class="hamburger-dropdown">
+                    <li><a href="index.html">Kezdőlap</a></li>
+                    <li><a href="about.html">Rólam</a></li>
+                    <li><a href="experience.html">Tapasztalat</a></li>
+                    <li><a href="studies.html">Tanulmányok</a></li>
+                    <li><a href="projects.html" aria-current="page">Projektek</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+
+<main>
+<section class="timeline-page" id="projects" aria-labelledby="projects-title">
+    <h1 id="projects-title">Projektek</h1>
+</section>
+</main>
+
+<footer>
+
+    <div>
+        <h3>KERESS MEG</h3>
+        <p><a href="mailto:12tundi@gmail.com">12tundi@gmail.com</a></p>
+    </div>
+
+    <div>
+        <h3>PROGRAMOZÁSI NYELVEK</h3>
+        <span class="tag-row">
+        <span class="tag">Python</span>
+        <span class="tag">R</span>
+        <span class="tag">SQL</span>
+        </span>
+        <span class="tag-row">
+        <span class="tag">HTML</span>
+        <span class="tag">C#</span>
+        </span>
+    </div>
+
+    <div>
+        <h3>KÖZÖSSÉGI OLDALAK</h3>
+        <p><a href="https://github.com/VitalosTunde" target="_blank" rel="noreferrer">GitHub</a> | <a href="https://www.linkedin.com/in/t%C3%BCnde-eszter-vit%C3%A1los-298bb1347/" target="_blank" rel="noreferrer">LinkedIn</a> | <a href="https://www.facebook.com/tundi.vitalos" target="_blank" rel="noreferrer">Facebook</a></p>
+    </div>
+
+    <div>
+        <h3>ÖNÉLETRAJZ</h3>
+        <button class="btn btn-secondary">Letöltés</button>
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+<script src="language.js"></script>
+</body>
+</html>
