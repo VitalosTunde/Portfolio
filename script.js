@@ -163,13 +163,14 @@ function changeLanguage(lang) {
 
     document.documentElement.lang = lang;
     document.title = trans.title;
+    renderTimelines(lang);
 
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks[0].textContent = trans.home;
-    navLinks[1].textContent = trans.about;
-    navLinks[2].textContent = trans.experience;
-    navLinks[3].textContent = trans.studies;
-    navLinks[4].textContent = trans.projects;
+    const navKeys = ['home', 'about', 'experience', 'studies', 'projects'];
+    document.querySelectorAll('.nav-links, .hamburger-dropdown').forEach(menu => {
+        menu.querySelectorAll('a').forEach((link, index) => {
+            link.textContent = trans[navKeys[index]];
+        });
+    });
 
     const heroText = document.querySelector('.hero-text');
     heroText.querySelector('p').textContent = trans.greeting;
@@ -187,8 +188,110 @@ function changeLanguage(lang) {
     footerDivs[2].querySelector('h3').textContent = trans.socialMedia;
     footerDivs[3].querySelector('h3').textContent = trans.resume;
     footerDivs[3].querySelector('.btn').textContent = trans.download;
+    updatePage(false);
 }
 
+
+const timelineTranslations = {
+    hu: {
+        experienceTitle: 'Tapasztalat', studiesTitle: 'Tanulmányok',
+        experience: [
+            ['Logisztikus specialista', 'Robert Bosch Kft., Budapest', '2025 – jelenleg'],
+            ['Pultos', 'Cinema City, Arena Mall', '2024'],
+            ['Animátor', 'Animacik Entertainment Kft., Füred Kemping & Üdülőfalu, Napfény Kemping', '2024'],
+            ['Pincér', 'Sofia kávézó és bár, Komárno', '2022 – 2024'],
+            ['Irodai asszisztens', 'Greenchem Hungary Kft.', '2022']
+        ],
+        studies: [
+            ['University of Eastern Finland, Kuopio', 'Business studies, Computer science and statistics', '2026'],
+            ['Budapesti Corvinus Egyetem', 'Gazdaságinformatika', '2024 – jelenleg'],
+            ['Selye János Gimnázium, Komárno', '', '2016 – 2024']
+        ]
+    },
+    en: {
+        experienceTitle: 'Work experience', studiesTitle: 'Education',
+        experience: [
+            ['Logistics specialist', 'Robert Bosch Kft., Budapest', '2025 – present'],
+            ['Counter attendant', 'Cinema City, Arena Mall', '2024'],
+            ['Animator', 'Animacik Entertainment Kft.', '2024', 'Füred Kemping & Üdülőfalu, Napfény Kemping'],
+            ['Waitress', 'Sofia kávézó és bár, Komárno', '2022 – 2024'],
+            ['Office assistant', 'Greenchem Hungary Kft.', '2022']
+        ],
+        studies: [
+            ['University of Eastern Finland, Kuopio', 'Business Studies, Computer Science and Statistics', '2026'],
+            ['Corvinus University of Budapest', 'Business Informatics', '2024 – present'],
+            ['Selye János Gimnázium, Komárno', '', '2016 – 2024']
+        ]
+    },
+    de: {
+        experienceTitle: 'Berufserfahrung', studiesTitle: 'Ausbildung',
+        experience: [
+            ['Logistikspezialistin', 'Robert Bosch Kft., Budapest', '2025 – heute'],
+            ['Thekenmitarbeiterin', 'Cinema City, Arena Mall', '2024'],
+            ['Animateurin', 'Animacik Entertainment Kft., Füred Kemping & Üdülőfalu, Napfény Kemping', '2024'],
+            ['Kellnerin', 'Sofia kávézó és bár, Komárno', '2022 – 2024'],
+            ['Büroassistentin', 'Greenchem Hungary Kft.', '2022']
+        ],
+        studies: [
+            ['University of Eastern Finland, Kuopio', 'Business Studies, Computer Science and Statistics', '2026'],
+            ['Corvinus University of Budapest', 'Business Informatics', '2024 – heute'],
+            ['Selye János Gimnázium, Komárno', '', '2016 – 2024']
+        ]
+    }
+};
+
+function renderTimelines(lang) {
+    const content = timelineTranslations[lang];
+    ['experience', 'studies'].forEach(page => {
+        const section = document.getElementById(page);
+        const heading = document.createElement('h1');
+        heading.id = `${page}-title`;
+        heading.textContent = content[`${page}Title`];
+        const list = document.createElement('ol');
+        list.className = 'timeline';
+        content[page].forEach(([title, subtitle, date, detail]) => {
+            const item = document.createElement('li');
+            item.className = 'timeline-card';
+            const cardTitle = document.createElement('h2');
+            cardTitle.textContent = title;
+            item.append(cardTitle);
+            [subtitle, detail].filter(Boolean).forEach(text => {
+                const paragraph = document.createElement('p');
+                paragraph.textContent = text;
+                item.append(paragraph);
+            });
+            const dateText = document.createElement('span');
+            dateText.className = 'timeline-date';
+            dateText.textContent = date;
+            item.append(dateText);
+            list.append(item);
+        });
+        section.replaceChildren(heading, list);
+    });
+}
+
+function updatePage(scroll = true) {
+    const page = ['experience', 'studies'].includes(location.hash.slice(1))
+        ? location.hash.slice(1) : 'home';
+    ['home', 'experience', 'studies'].forEach(id => {
+        document.getElementById(id).hidden = id !== page;
+    });
+    document.querySelectorAll('nav a').forEach(link => {
+        if (link.getAttribute('href') === `#${page}`) {
+            link.setAttribute('aria-current', 'page');
+        } else {
+            link.removeAttribute('aria-current');
+        }
+    });
+    const lang = document.documentElement.lang;
+    document.title = page === 'home' ? translations[lang].title
+        : `${timelineTranslations[lang][`${page}Title`]} | ${translations[lang].title}`;
+    if (scroll) window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+window.addEventListener('hashchange', () => updatePage());
+renderTimelines(document.documentElement.lang);
+updatePage(false);
 
 const languageSelector = document.querySelector(".language-selector");
 const currentLang = document.querySelector(".current-lang");

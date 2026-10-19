@@ -17,10 +17,10 @@
     <img src="images/logo_sotet.svg" alt="Logo">
     <div class = "menu-container">
         <ul class="nav-links">
-            <li><a href="#">Kezdőlap</a></li>
+            <li><a href="#home" aria-current="page">Kezdőlap</a></li>
             <li><a href="#">Rólam</a></li>
-            <li><a href="#">Tapasztalat</a></li>
-            <li><a href="#">Tanulmányok</a></li>
+            <li><a href="#experience">Tapasztalat</a></li>
+            <li><a href="#studies">Tanulmányok</a></li>
             <li><a href="#">Projektek</a></li>
         </ul>
 
@@ -51,10 +51,10 @@
                 </div>
 
                 <ul class="hamburger-dropdown">
-                    <li><a href="#">Kezdőlap</a></li>
+                    <li><a href="#home" aria-current="page">Kezdőlap</a></li>
                     <li><a href="#">Rólam</a></li>
-                    <li><a href="#">Tapasztalat</a></li>
-                    <li><a href="#">Tanulmányok</a></li>
+                    <li><a href="#experience">Tapasztalat</a></li>
+                    <li><a href="#studies">Tanulmányok</a></li>
                     <li><a href="#">Projektek</a></li>
                 </ul>
             </div>
@@ -64,7 +64,8 @@
 </nav>
 
 
-<section class="hero">
+<main>
+<section class="hero" id="home">
     <img src="images/profil.jpg" alt="profil kép">
 
     <div class="hero-text">
@@ -83,7 +84,9 @@
         </div>
     </div>
 </section>
-
+<section class="timeline-page" id="experience" aria-labelledby="experience-title" hidden></section>
+<section class="timeline-page" id="studies" aria-labelledby="studies-title" hidden></section>
+</main>
 
 <footer>
 
@@ -94,10 +97,15 @@
 
     <div>
         <h3>PROGRAMOZÁSI NYELVEK</h3>
-        <span class="tag">C#</span>
+        <span class="tag-row">
         <span class="tag">Python</span>
+        <span class="tag">R</span>
         <span class="tag">.NET</span>
+        </span>
+        <span class="tag-row">
         <span class="tag">HTML</span>
+        <span class="tag">C#</span>
+        </span>
     </div>
 
     <div>
