@@ -58,6 +58,41 @@ const translations = {
     }
 };
 
+// Hungarian text is kept in about.html; translated text is maintained here.
+const aboutTranslations = {
+    hu: Object.fromEntries(Array.from(document.querySelectorAll('[data-about]'), element => [element.dataset.about, element.textContent])),
+    en: {
+        introTitle: 'Introduction',
+        intro1: 'I am a motivated and energetic Business Informatics student looking to gain professional experience alongside my university studies. I am interested in IT, data analysis and programming, and enjoy exploring new technologies and opportunities.',
+        intro2: 'I learn quickly, adapt well to new situations, and enjoy working both independently and in a team. My strengths include mathematics and logical thinking. Accuracy, reliability and continuous development are important to me. I welcome new challenges and seek opportunities to put my knowledge and creativity into practice.',
+        languagesTitle: 'Languages', hungarian: 'Hungarian', english: 'English', german: 'German', slovak: 'Slovak',
+        native: 'native', englishLevel: 'advanced', germanLevel: 'intermediate', slovakLevel: 'intermediate',
+        skillsTitle: 'Skills and other information', programmingLabel: 'Programming languages:',
+        programming: 'Python, HTML5, C#, SQL, R – basic knowledge',
+        softwareLabel: 'Other software:', software: 'MS Office, Carmnote – user level',
+        licenceLabel: 'Driving licence:', licence: 'Categories A1 and B (2022)',
+        membershipLabel: 'Membership:',
+    },
+    de: {
+        introTitle: 'Kurzvorstellung',
+        intro1: 'Ich bin eine motivierte und engagierte Studentin der Wirtschaftsinformatik und möchte neben meinem Studium Berufserfahrung sammeln. Ich interessiere mich für Informatik, Datenanalyse und Programmierung und lerne gerne neue Technologien und Möglichkeiten kennen.',
+        intro2: 'Ich lerne schnell, passe mich gut an neue Situationen an und arbeite sowohl selbstständig als auch gerne im Team. Zu meinen Stärken gehören Mathematik und logisches Denken. Genauigkeit, Zuverlässigkeit und kontinuierliche Weiterentwicklung sind mir wichtig. Ich bin offen für neue Herausforderungen und suche Möglichkeiten, mein Wissen und meine Kreativität einzusetzen.',
+        languagesTitle: 'Sprachkenntnisse', hungarian: 'Ungarisch', english: 'Englisch', german: 'Deutsch', slovak: 'Slowakisch',
+        native: 'muttersprachliches Niveau', englishLevel: 'fortgeschritten', germanLevel: 'Mittelstufe', slovakLevel: 'Mittelstufe',
+        skillsTitle: 'Kenntnisse und weitere Informationen', programmingLabel: 'Programmiersprachen:',
+        programming: 'Python, HTML5, C#, SQL, R – Grundkenntnisse',
+        softwareLabel: 'Weitere Software:', software: 'MS Office, Carmnote – Anwenderkenntnisse',
+        licenceLabel: 'Führerschein:', licence: 'Klassen A1 und B (2022)',
+        membershipLabel: 'Mitgliedschaft:',
+    }
+};
+
+function translateAbout(lang) {
+    document.querySelectorAll('[data-about]').forEach(element => {
+        element.textContent = aboutTranslations[lang][element.dataset.about];
+    });
+}
+
 function changeLanguage(lang) {
     if (!translations[lang]) lang = 'hu';
     savePreference('language', lang);
@@ -88,6 +123,7 @@ function changeLanguage(lang) {
     document.documentElement.lang = lang;
     document.title = trans.title;
     renderTimelines(lang);
+    translateAbout(lang);
 
     const navKeys = ['home', 'about', 'experience', 'studies', 'projects'];
     document.querySelectorAll('.nav-links, .hamburger-dropdown').forEach(menu => {

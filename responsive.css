@@ -1,4 +1,9 @@
 @media (max-width: 800px) {
+    .about-grid,
+    .about-secondary {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
     .timeline-page {
         padding: 40px 24px 56px;
     }
