@@ -504,6 +504,12 @@ footer a:hover {
     padding: 50px;
 }
 
+.hero > img {
+    box-sizing: border-box;
+    border: 1.5px solid #1e293b;
+    box-shadow: 0 12px 32px rgba(45, 60, 87, 0.25);
+}
+
 .hero-text h1 {
     font-size: 48px;
     margin: 10px 0;
@@ -545,6 +551,21 @@ footer {
     justify-content: space-between;
     border-top: 1px solid var(--footer-border);
     background-color: var(--footer-bg);
+}
+
+.projects-placeholder {
+    display: grid;
+    place-items: center;
+    min-height: 35vh;
+    color: var(--nav-link-color);
+    text-align: center;
+}
+
+.projects-placeholder p {
+    margin: 0;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 300;
+    letter-spacing: 0.04em;
 }
 
 .tag {

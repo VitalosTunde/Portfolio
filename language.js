@@ -11,7 +11,7 @@ const translations = {
         titleText: "Egyetemista",
         description: "Motivált és elhivatott gazdaságinformatikus hallgató vagyok, aki gyakornoki munkát keres IT területen.",
         button1: "Többet rólam",
-        button2: "Kapcsolat",
+        button2: "Projektek",
         contactMe: "KERESS MEG",
         programmingLanguages: "PROGRAMOZÁSI NYELVEK",
         socialMedia: "KÖZÖSSÉGI OLDALAK",
@@ -30,7 +30,7 @@ const translations = {
         titleText: "University Student",
         description: "I am a motivated and dedicated economics informatics student looking for an internship in the IT field.",
         button1: "More about me",
-        button2: "Contact",
+        button2: "Projects",
         contactMe: "CONTACT ME",
         programmingLanguages: "PROGRAMMING LANGUAGES",
         socialMedia: "SOCIAL MEDIA",
@@ -49,7 +49,7 @@ const translations = {
         titleText: "Studentin",
         description: "Ich bin eine motivierte und engagierte Studentin der Wirtschaftsinformatik, die ein Praktikum im IT-Bereich sucht.",
         button1: "Mehr über mich",
-        button2: "Kontakt",
+        button2: "Projekte",
         contactMe: "KONTAKTIERE MICH",
         programmingLanguages: "PROGRAMMIERSPRACHEN",
         socialMedia: "SOZIALE MEDIEN",
@@ -66,10 +66,10 @@ const aboutTranslations = {
         intro1: 'I am a motivated and energetic Business Informatics student looking to gain professional experience alongside my university studies. I am interested in IT, data analysis and programming, and enjoy exploring new technologies and opportunities.',
         intro2: 'I learn quickly, adapt well to new situations, and enjoy working both independently and in a team. My strengths include mathematics and logical thinking. Accuracy, reliability and continuous development are important to me. I welcome new challenges and seek opportunities to put my knowledge and creativity into practice.',
         languagesTitle: 'Languages', hungarian: 'Hungarian', english: 'English', german: 'German', slovak: 'Slovak',
-        native: 'native', englishLevel: 'advanced', germanLevel: 'intermediate', slovakLevel: 'intermediate',
+        native: 'native', englishLevel: 'professional working', germanLevel: 'limited working', slovakLevel: 'limited working',
         skillsTitle: 'Skills and other information', programmingLabel: 'Programming languages:',
         programming: 'Python, HTML5, C#, SQL, R – basic knowledge',
-        softwareLabel: 'Other software:', software: 'MS Office, Carmnote – user level',
+        softwareLabel: 'Other software:', software: 'MS Office, Carmnote – user level; SAP – basic knowledge',
         licenceLabel: 'Driving licence:', licence: 'Categories A1 and B (2022)',
         membershipLabel: 'Membership:',
     },
@@ -78,10 +78,10 @@ const aboutTranslations = {
         intro1: 'Ich bin eine motivierte und engagierte Studentin der Wirtschaftsinformatik und möchte neben meinem Studium Berufserfahrung sammeln. Ich interessiere mich für Informatik, Datenanalyse und Programmierung und lerne gerne neue Technologien und Möglichkeiten kennen.',
         intro2: 'Ich lerne schnell, passe mich gut an neue Situationen an und arbeite sowohl selbstständig als auch gerne im Team. Zu meinen Stärken gehören Mathematik und logisches Denken. Genauigkeit, Zuverlässigkeit und kontinuierliche Weiterentwicklung sind mir wichtig. Ich bin offen für neue Herausforderungen und suche Möglichkeiten, mein Wissen und meine Kreativität einzusetzen.',
         languagesTitle: 'Sprachkenntnisse', hungarian: 'Ungarisch', english: 'Englisch', german: 'Deutsch', slovak: 'Slowakisch',
-        native: 'muttersprachliches Niveau', englishLevel: 'fortgeschritten', germanLevel: 'Mittelstufe', slovakLevel: 'Mittelstufe',
+        native: 'muttersprachliches Niveau', englishLevel: 'professionelle Arbeitssprachkenntnisse', germanLevel: 'eingeschränkte Arbeitssprachkenntnisse', slovakLevel: 'eingeschränkte Arbeitssprachkenntnisse',
         skillsTitle: 'Kenntnisse und weitere Informationen', programmingLabel: 'Programmiersprachen:',
         programming: 'Python, HTML5, C#, SQL, R – Grundkenntnisse',
-        softwareLabel: 'Weitere Software:', software: 'MS Office, Carmnote – Anwenderkenntnisse',
+        softwareLabel: 'Weitere Software:', software: 'MS Office, Carmnote – Anwenderkenntnisse; SAP – Grundkenntnisse',
         licenceLabel: 'Führerschein:', licence: 'Klassen A1 und B (2022)',
         membershipLabel: 'Mitgliedschaft:',
     }
@@ -149,7 +149,11 @@ function changeLanguage(lang) {
     footerDivs[1].querySelector('h3').textContent = trans.programmingLanguages;
     footerDivs[2].querySelector('h3').textContent = trans.socialMedia;
     footerDivs[3].querySelector('h3').textContent = trans.resume;
-    footerDivs[3].querySelector('.btn').textContent = trans.download;
+    const resumeLink = footerDivs[3].querySelector('.btn');
+    resumeLink.textContent = trans.download;
+    resumeLink.href = lang === 'hu'
+        ? 'cv/Vitalos_Tunde_HU.pdf'
+        : 'cv/Tunde_Vitalos_EN.pdf';
     updatePageTranslation();
 }
 
