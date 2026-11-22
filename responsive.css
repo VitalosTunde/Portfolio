@@ -207,6 +207,10 @@
 
 @media (min-width: 801px) and (max-width: 1024px) {
 
+    .about-secondary {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
     .nav-links {
         display: none;
     }
@@ -287,6 +291,13 @@
         white-space: nowrap;
     }
 
+}
+
+@media (max-width: 480px) {
+    .about-skills .about-details > div {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+    }
 }
 
 @media (max-width: 1024px) {

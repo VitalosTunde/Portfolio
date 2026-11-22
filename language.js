@@ -79,7 +79,7 @@ const aboutTranslations = {
         intro2: 'Ich lerne schnell, passe mich gut an neue Situationen an und arbeite sowohl selbstständig als auch gerne im Team. Zu meinen Stärken gehören Mathematik und logisches Denken. Genauigkeit, Zuverlässigkeit und kontinuierliche Weiterentwicklung sind mir wichtig. Ich bin offen für neue Herausforderungen und suche Möglichkeiten, mein Wissen und meine Kreativität einzusetzen.',
         languagesTitle: 'Sprachkenntnisse', hungarian: 'Ungarisch', english: 'Englisch', german: 'Deutsch', slovak: 'Slowakisch',
         native: 'muttersprachliches Niveau', englishLevel: 'professionelle Arbeitssprachkenntnisse', germanLevel: 'eingeschränkte Arbeitssprachkenntnisse', slovakLevel: 'eingeschränkte Arbeitssprachkenntnisse',
-        skillsTitle: 'Kenntnisse und weitere Informationen', programmingLabel: 'Programmiersprachen:',
+        skillsTitle: 'Kenntnisse und weitere Informationen', programmingLabel: 'Programmierung:',
         programming: 'Python, HTML5, C#, SQL, R – Grundkenntnisse',
         softwareLabel: 'Weitere Software:', software: 'MS Office, Carmnote – Anwenderkenntnisse; SAP – Grundkenntnisse',
         licenceLabel: 'Führerschein:', licence: 'Klassen A1 und B (2022)',
@@ -154,6 +154,7 @@ function changeLanguage(lang) {
     resumeLink.href = lang === 'hu'
         ? 'cv/Vitalos_Tunde_HU.pdf'
         : 'cv/Tunde_Vitalos_EN.pdf';
+    resumeLink.download = lang === 'hu' ? 'Vitalos_Tunde_HU.pdf' : 'Tunde_Vitalos_EN.pdf';
     updatePageTranslation();
 }
 
@@ -169,7 +170,7 @@ const timelineTranslations = {
             ['Irodai asszisztens', 'Greenchem Hungary Kft.', '2022']
         ],
         studies: [
-            ['University of Eastern Finland, Kuopio', 'Business studies, Computer science and statistics', '2026'],
+            ['University of Eastern Finland, Kuopio', 'Business Studies, Computer Science and Statistics', '2026'],
             ['Budapesti Corvinus Egyetem', 'Gazdaságinformatika', '2024 – jelenleg'],
             ['Selye János Gimnázium, Komárno', '', '2016 – 2024']
         ]
@@ -200,7 +201,7 @@ const timelineTranslations = {
         ],
         studies: [
             ['University of Eastern Finland, Kuopio', 'Business Studies, Computer Science and Statistics', '2026'],
-            ['Corvinus University of Budapest', 'Business Informatics', '2024 – heute'],
+            ['Corvinus University of Budapest', 'Wirtschaftsinformatik', '2024 – heute'],
             ['Selye János Gimnázium, Komárno', '', '2016 – 2024']
         ]
     }
